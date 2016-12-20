@@ -7,6 +7,7 @@ import { fetchQuestion } from '../actions/questions';
 // Components import
 import ActivityLog from './main/activity-log';
 import QuestionInfo from './main/question-info';
+import Loader from './main/loader';
 
 // Main page
 class Main extends Component {
@@ -14,27 +15,21 @@ class Main extends Component {
         this.props.fetchQuestion();
     }
 
-    showsQuestion(question) {
-        if (question === null) {
-            return <h3>Data processing ...</h3>;
-        } else {
-            return (
-                <ul>
-                    <li>answer: {question.answer}</li>
-                    <li>id: {question.id}</li>
-                    <li>description: {question.description}</li>
-                </ul>
-            );
-        }
-    }
-
     render() {
         console.log(this.props.question);
         return (
             <div className="main-page">
-                <ActivityLog />
-                <QuestionInfo />
-                {this.showsQuestion(this.props.question)}
+                {this.props.question ? (
+                    <div>
+                        <ActivityLog />
+                        <QuestionInfo
+                            id={this.props.question.id}
+                            description={this.props.question.description}
+                            category={this.props.question.category} />
+                    </div>
+                ) :
+                    <Loader />
+                }
             </div>
         );
     }

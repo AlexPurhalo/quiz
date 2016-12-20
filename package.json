@@ -22,6 +22,7 @@
     "colors": "^1.1.2",
     "css-loader": "^0.26.1",
     "express": "^4.14.0",
+    "file-loader": "^0.9.0",
     "lodash": "^4.17.2",
     "node-sass": "^4.1.1",
     "path": "^0.12.7",
@@ -33,6 +34,7 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.1.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }

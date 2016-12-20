@@ -1,4 +1,5 @@
 .main-page {
+  @import './main/loader';
   @import './main/activity-log';
   @import './main/question-info';
 }
