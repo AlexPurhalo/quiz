@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 export default class Main extends Component {
     render() {
         return (
-            <div>Main page</div>
+            <div className="main-page">Main page</div>
         );
     }
 }
