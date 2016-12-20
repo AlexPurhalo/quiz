@@ -14,14 +14,36 @@ class Main extends Component {
         this.props.fetchQuestion();
     }
 
+    showsQuestion(question) {
+        if (question === null) {
+            return <h3>Data processing ...</h3>;
+        } else {
+            return (
+                <ul>
+                    <li>answer: {question.answer}</li>
+                    <li>id: {question.id}</li>
+                    <li>description: {question.description}</li>
+                </ul>
+            );
+        }
+    }
+
     render() {
+        console.log(this.props.question);
         return (
             <div className="main-page">
                 <ActivityLog />
                 <QuestionInfo />
+                {this.showsQuestion(this.props.question)}
             </div>
         );
     }
 }
 
-export default connect(null, { fetchQuestion })(Main)
+function mapStateToProps(state) {
+    return {
+        question: state.questions.question
+    }
+}
+
+export default connect(mapStateToProps, { fetchQuestion })(Main)
