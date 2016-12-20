@@ -1,0 +1,12 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "some-description",
+  "main": "index.js",
+  "repository": "git@github.com:AlexPurhalo/quiz.git",
+  "scripts": {},
+  "author": "Alex Purhalo",
+  "license": "",
+  "devDependencies": {},
+  "dependencies": {}
+}
