@@ -1,0 +1,21 @@
+.question-info {
+  text-align: center;
+
+  h1.title {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+  }
+
+  h2.category {
+    font-size: 1.4rem;
+  }
+
+  p.description {
+    text-align: left;
+    margin: 1rem auto 0;
+    font-size: 1.4rem;
+    max-width: 676px;
+    background-color: #F6F5F7;
+    padding: 0.5rem 1.4rem;
+  }
+}
