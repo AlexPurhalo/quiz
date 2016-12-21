@@ -1,0 +1,15 @@
+.skip-question {
+  margin: 1rem auto;
+  padding: 0.3rem 0;
+  text-align: center;
+  background-color: #2d9bf0;
+  max-width: 676px;
+  border-radius: 5px;
+  color: #FFF;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1e8ee4;
+  }
+}
