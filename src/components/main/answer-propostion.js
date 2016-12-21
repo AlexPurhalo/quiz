@@ -3,24 +3,34 @@ import React, { Component } from 'react';
 
 // Shows answer proposition chars
 export default class AnswerProposition extends Component {
+    constructor() {
+        super();
+
+        this.receiveChar = this.receiveChar.bind(this);
+    }
+    receiveChar(char) {
+        this.props.charRelocationToBoard(char);
+    }
+
+    showItem(characters) {
+        return (
+            characters.map(char =>
+                <li
+                    onClick={e => this.receiveChar(char)}
+                    className={`inline-block character ${char.name === ' ' && 'space-as-character'}`}
+                    key={char.id}>
+                    {char.name}
+                </li>
+            )
+        );
+    }
     render() {
         return (
             <div className="answer-proposition">
                 <div className="answer-container">
                     <div className="random-characters">
                         <ul className="inline-list">
-                            <li className="inline-block character">
-                                B
-                            </li>
-                            <li className="inline-block character">
-                                L
-                            </li>
-                            <li className="inline-block character">
-                                S
-                            </li>
-                            <li className="inline-block character">
-                                P
-                            </li>
+                            {this.showItem(this.props.characters)}
                         </ul>
                     </div>
                 </div>

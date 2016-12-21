@@ -2,7 +2,15 @@
 import axios from 'axios';
 
 // Actions types import
-import { FETCH_QUESTION, INCREMENT_QUESTIONS_COUNT } from '../constants/questions';
+import {
+    FETCH_QUESTION,
+    INCREMENT_QUESTIONS_COUNT,
+    RELOCATE_FROM_PROPOSITION_TO_BOARD,
+    RELOCATION_FROM_BOARD
+} from '../constants/questions';
+
+// Functions import
+import { strToObjsArr } from '../functions/answer-transformation';
 
 // Receives a random question
 export function fetchQuestion() {
@@ -14,7 +22,8 @@ export function fetchQuestion() {
                     id: questionObj.id,
                     answer: questionObj.answer,
                     description: questionObj.question,
-                    category: questionObj.category.title
+                    category: questionObj.category.title,
+                    transformedAnswer: strToObjsArr(questionObj.answer)
                 };
                 dispatch({
                     type: FETCH_QUESTION,
@@ -29,6 +38,26 @@ export function incrementQuestionsCount() {
     return function(dispatch) {
         dispatch({
             type: INCREMENT_QUESTIONS_COUNT
+        })
+    }
+}
+
+// Relocates a character from "arrayInProposition" to "arrayOnBoard"
+export function charRelocationToBoard(char) {
+    return function(dispatch) {
+        dispatch({
+            type: RELOCATE_FROM_PROPOSITION_TO_BOARD,
+            payload: char
+        })
+    }
+}
+
+// Returns a character from "arrayOnBoard" back to "arrayInProposition"
+export function charRelocationFromBoard(char) {
+    return function(dispatch) {
+        dispatch({
+            type: RELOCATION_FROM_BOARD,
+            payload: char
         })
     }
 }
