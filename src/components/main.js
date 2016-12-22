@@ -16,6 +16,7 @@ import Loader from './main/loader';
 import SkipQuestion from './main/skip-question';
 import AnswerBuilding from './main/answer-building';
 import AnswerProposition from './main/answer-propostion';
+import ContinueQuiz from './main/continue-quiz';
 
 // Main page
 class Main extends Component {
@@ -43,6 +44,7 @@ class Main extends Component {
                         <AnswerProposition
                             characters={this.props.arrayInProposition}
                             charRelocationToBoard={this.props.charRelocationToBoard} />
+                        {/*<ContinueQuiz />*/}
                     </div>
                 ) :
                     <Loader />

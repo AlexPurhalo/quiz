@@ -38,3 +38,5 @@ export default class AnswerBuilding extends Component {
         );
     }
 }
+
+// failure-answer, success-answer
