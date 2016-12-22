@@ -7,3 +7,20 @@ export function strToObjsArr(str) {
 
     return objsArr
 }
+
+// Randomizes position of items in the characters array
+export function randomizeItems(array) {
+    let i, tempVal, randIndex;
+
+    for(i = array.length - 1; i > 0; i--) {
+        // receives a random number dependent from iteration number
+        randIndex = Math.floor(Math.random() * (i + 1)); // 1
+
+        // swaps arrays items
+        tempVal = array[i];
+        array[i] = array[randIndex];
+        array[randIndex] = tempVal;
+    }
+
+    return array
+}

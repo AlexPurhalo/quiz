@@ -10,7 +10,7 @@ import {
 } from '../constants/questions';
 
 // Functions import
-import { strToObjsArr } from '../functions/answer-transformation';
+import { strToObjsArr, randomizeItems } from '../functions/answer-transformation';
 
 // Receives a random question
 export function fetchQuestion() {
@@ -23,7 +23,7 @@ export function fetchQuestion() {
                     answer: questionObj.answer,
                     description: questionObj.question,
                     category: questionObj.category.title,
-                    transformedAnswer: strToObjsArr(questionObj.answer)
+                    transformedAnswer: randomizeItems(strToObjsArr(questionObj.answer))
                 };
                 dispatch({
                     type: FETCH_QUESTION,
