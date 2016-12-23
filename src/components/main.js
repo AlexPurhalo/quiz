@@ -43,12 +43,18 @@ class Main extends Component {
                             incrementQuestionsCount={this.props.incrementQuestionsCount} />
                         <AnswerBuilding
                             characters={this.props.arrayOnBoard}
-                            charRelocationFromBoard={this.props.charRelocationFromBoard} />
-                        <AnswerProposition
-                            characters={this.props.arrayInProposition}
-                            charRelocationToBoard={this.props.charRelocationToBoard}
-                            checkAnswer={this.props.checkAnswer} />
-                        {/*<ContinueQuiz />*/}
+                            charRelocationFromBoard={this.props.charRelocationFromBoard}
+                            answerCondition={this.props.answerCondition} />
+                        {this.props.answerCondition === null ? (
+                            <AnswerProposition
+                                characters={this.props.arrayInProposition}
+                                charRelocationToBoard={this.props.charRelocationToBoard}
+                                checkAnswer={this.props.checkAnswer} />
+                        ) : (
+                            <ContinueQuiz
+                                answerCondition={this.props.answerCondition} />
+                        )}
+
                     </div>
                 ) :
                     <Loader />
@@ -63,7 +69,8 @@ function mapStateToProps(state) {
         question: state.questions.question,
         questionsCount: state.questions.totalCount,
         arrayInProposition: state.questions.arrayInProposition,
-        arrayOnBoard: state.questions.arrayOnBoard
+        arrayOnBoard: state.questions.arrayOnBoard,
+        answerCondition: state.questions.checkAnswerCondition
     }
 }
 

@@ -5,7 +5,11 @@ import React, { Component } from 'react';
 export default class ContinueQuiz extends Component {
     render() {
         return (
-            <div className="next-question">Next Question</div>
+            <div>
+                {this.props.answerCondition === true ? (
+                    <div className="next-question">Next Question</div>
+                ) : null }
+            </div>
         );
     }
 }

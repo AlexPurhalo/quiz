@@ -49,7 +49,8 @@ export default function(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 arrayInProposition: [...state.arrayInProposition, action.payload],
-                arrayOnBoard: arr2
+                arrayOnBoard: arr2,
+                checkAnswerCondition: null
             };
 
         case CHECK_ANSWER:
