@@ -10,6 +10,7 @@ export default class AnswerProposition extends Component {
     }
     receiveChar(char) {
         this.props.charRelocationToBoard(char);
+        this.props.checkAnswer();
     }
 
     showItem(characters) {

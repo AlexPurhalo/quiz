@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Actions import
 import {
     fetchQuestion,
     incrementQuestionsCount,
     charRelocationToBoard,
-    charRelocationFromBoard
+    charRelocationFromBoard,
+    checkAnswer
 } from '../actions/questions';
 
 // Components import
@@ -25,6 +27,7 @@ class Main extends Component {
     }
 
     render() {
+        console.log(`answer: ${this.props.question && this.props.question.answer}`);
         return (
             <div className="main-page">
                 {this.props.question ? (
@@ -43,7 +46,8 @@ class Main extends Component {
                             charRelocationFromBoard={this.props.charRelocationFromBoard} />
                         <AnswerProposition
                             characters={this.props.arrayInProposition}
-                            charRelocationToBoard={this.props.charRelocationToBoard} />
+                            charRelocationToBoard={this.props.charRelocationToBoard}
+                            checkAnswer={this.props.checkAnswer} />
                         {/*<ContinueQuiz />*/}
                     </div>
                 ) :
@@ -69,6 +73,7 @@ export default connect(
         fetchQuestion,
         incrementQuestionsCount,
         charRelocationToBoard,
-        charRelocationFromBoard
+        charRelocationFromBoard,
+        checkAnswer
     }
 )(Main)

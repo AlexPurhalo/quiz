@@ -3,15 +3,21 @@ import {
     FETCH_QUESTION,
     INCREMENT_QUESTIONS_COUNT,
     RELOCATE_FROM_PROPOSITION_TO_BOARD,
-    RELOCATION_FROM_BOARD
+    RELOCATION_FROM_BOARD,
+    CHECK_ANSWER
+
 } from '../constants/questions';
+
+// Imports functions
+import { objsArrToStr } from '../functions/answer-transformation';
 
 // Initial states for reducers
 const INITIAL_STATE = {
     question: null,
     totalCount: 0,
     arrayInProposition: [],
-    arrayOnBoard: []
+    arrayOnBoard: [],
+    checkAnswerCondition: null
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -46,6 +52,18 @@ export default function(state = INITIAL_STATE, action) {
                 arrayOnBoard: arr2
             };
 
+        case CHECK_ANSWER:
+            let answer;
+            let userAnswer = objsArrToStr(state.arrayOnBoard), actualAnswer = state.question.answer;
+            if (state.arrayInProposition.length <= 0) {
+                if (userAnswer === actualAnswer ) answer = true;
+                if (userAnswer !== actualAnswer ) answer = false;
+            } else {
+                answer = null
+            }
+
+            console.log(answer);
+            return { ...state, checkAnswerCondition: answer };
         default:
             return state;
     }

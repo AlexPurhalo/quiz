@@ -6,7 +6,8 @@ import {
     FETCH_QUESTION,
     INCREMENT_QUESTIONS_COUNT,
     RELOCATE_FROM_PROPOSITION_TO_BOARD,
-    RELOCATION_FROM_BOARD
+    RELOCATION_FROM_BOARD,
+    CHECK_ANSWER
 } from '../constants/questions';
 
 // Functions import
@@ -58,6 +59,15 @@ export function charRelocationFromBoard(char) {
         dispatch({
             type: RELOCATION_FROM_BOARD,
             payload: char
+        })
+    }
+}
+
+// Checks answer
+export function checkAnswer() {
+    return function(dispatch) {
+        dispatch({
+            type: CHECK_ANSWER
         })
     }
 }

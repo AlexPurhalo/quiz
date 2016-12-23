@@ -24,3 +24,15 @@ export function randomizeItems(array) {
 
     return array
 }
+
+
+// Transforms array with objects to single string
+export function objsArrToStr(objsArr) {
+    let str = '';
+
+    for (let i = 0; i < objsArr.length; i++) {
+        str = str + objsArr[i]['name'];
+    }
+
+    return str;
+}
