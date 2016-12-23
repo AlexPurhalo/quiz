@@ -8,7 +8,8 @@ import {
     incrementQuestionsCount,
     charRelocationToBoard,
     charRelocationFromBoard,
-    checkAnswer
+    checkAnswer,
+    incrementCorrectQuestionsCount
 } from '../actions/questions';
 
 // Components import
@@ -34,7 +35,8 @@ class Main extends Component {
                 {this.props.question ? (
                     <div>
                         <ActivityLog
-                            questionsCount={this.props.questionsCount} />
+                            questionsCount={this.props.questionsCount}
+                            correctAnswers={this.props.correctAnswers} />
                         <QuestionInfo
                             id={this.props.question.id}
                             description={this.props.question.description}
@@ -55,7 +57,10 @@ class Main extends Component {
                                 checkAnswer={this.props.checkAnswer} />
                         ) : (
                             <ContinueQuiz
-                                answerCondition={this.props.answerCondition} />
+                                answerCondition={this.props.answerCondition}
+                                fetchQuestion={this.props.fetchQuestion}
+                                incrementCorrectQuestionsCount={this.props.incrementCorrectQuestionsCount}
+                                incrementQuestionsCount={this.props.incrementQuestionsCount} />
                         )}
 
                     </div>
@@ -73,7 +78,8 @@ function mapStateToProps(state) {
         questionsCount: state.questions.totalCount,
         arrayInProposition: state.questions.arrayInProposition,
         arrayOnBoard: state.questions.arrayOnBoard,
-        answerCondition: state.questions.checkAnswerCondition
+        answerCondition: state.questions.checkAnswerCondition,
+        correctAnswers: state.questions.correctAnswers
     }
 }
 
@@ -84,6 +90,7 @@ export default connect(
         incrementQuestionsCount,
         charRelocationToBoard,
         charRelocationFromBoard,
-        checkAnswer
+        checkAnswer,
+        incrementCorrectQuestionsCount
     }
 )(Main)

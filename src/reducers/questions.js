@@ -4,8 +4,8 @@ import {
     INCREMENT_QUESTIONS_COUNT,
     RELOCATE_FROM_PROPOSITION_TO_BOARD,
     RELOCATION_FROM_BOARD,
-    CHECK_ANSWER
-
+    CHECK_ANSWER,
+    INCREMENT_CORRECT_QUESTIONS_COUNT
 } from '../constants/questions';
 
 // Imports functions
@@ -17,7 +17,8 @@ const INITIAL_STATE = {
     totalCount: 0,
     arrayInProposition: [],
     arrayOnBoard: [],
-    checkAnswerCondition: null
+    checkAnswerCondition: null,
+    correctAnswers: 0
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -26,7 +27,8 @@ export default function(state = INITIAL_STATE, action) {
             return { ...state,
                 question: action.payload,
                 arrayInProposition: action.payload.transformedAnswer,
-                arrayOnBoard: []
+                arrayOnBoard: [],
+                checkAnswerCondition: null
             };
 
         case INCREMENT_QUESTIONS_COUNT:
@@ -65,6 +67,10 @@ export default function(state = INITIAL_STATE, action) {
 
             console.log(answer);
             return { ...state, checkAnswerCondition: answer };
+
+        case INCREMENT_CORRECT_QUESTIONS_COUNT:
+            return { ...state, correctAnswers: state.correctAnswers + 1};
+
         default:
             return state;
     }

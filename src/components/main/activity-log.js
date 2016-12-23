@@ -9,7 +9,7 @@ export default class ActivityLog extends Component {
                 <div className="row">
                     <div className="col-md-6">
                         <div className="correct-answers">
-                            Correct Answers: 0
+                            Correct Answers: {this.props.correctAnswers}
                         </div>
                     </div>
                     <div className="col-md-6">

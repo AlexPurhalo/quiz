@@ -7,7 +7,8 @@ import {
     INCREMENT_QUESTIONS_COUNT,
     RELOCATE_FROM_PROPOSITION_TO_BOARD,
     RELOCATION_FROM_BOARD,
-    CHECK_ANSWER
+    CHECK_ANSWER,
+    INCREMENT_CORRECT_QUESTIONS_COUNT
 } from '../constants/questions';
 
 // Functions import
@@ -70,4 +71,9 @@ export function checkAnswer() {
             type: CHECK_ANSWER
         })
     }
+}
+
+// Increments the correct answers count
+export function incrementCorrectQuestionsCount() {
+    return function(dispatch) { dispatch({ type: INCREMENT_CORRECT_QUESTIONS_COUNT })}
 }
