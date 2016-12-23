@@ -19,6 +19,7 @@ import SkipQuestion from './main/skip-question';
 import AnswerBuilding from './main/answer-building';
 import AnswerProposition from './main/answer-propostion';
 import ContinueQuiz from './main/continue-quiz';
+import ProgressMessage from './main/progress-message';
 
 // Main page
 class Main extends Component {
@@ -41,6 +42,8 @@ class Main extends Component {
                         <SkipQuestion
                             fetchQuestion={this.props.fetchQuestion}
                             incrementQuestionsCount={this.props.incrementQuestionsCount} />
+                        <ProgressMessage
+                            answerCondition={this.props.answerCondition} />
                         <AnswerBuilding
                             characters={this.props.arrayOnBoard}
                             charRelocationFromBoard={this.props.charRelocationFromBoard}

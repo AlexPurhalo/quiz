@@ -1,0 +1,14 @@
+.progress-message {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+
+  .success-message {
+    color: rgb(78, 183, 76);
+  }
+
+  .failure-message {
+    color: indianred;
+  }
+}
